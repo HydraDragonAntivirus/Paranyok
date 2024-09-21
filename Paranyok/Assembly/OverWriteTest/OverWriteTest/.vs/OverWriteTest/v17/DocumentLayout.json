@@ -1,0 +1,63 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\victim\\source\\repos\\Paranyok\\Assembly\\OverWriteTest\\OverWriteTest\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|OverWriteTest||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B9A3FC5-CED2-4A84-8B8B-0E502DF2264F}|OverWriteTest\\OverWriteTest.vbproj|c:\\users\\victim\\source\\repos\\paranyok\\assembly\\overwritetest\\overwritetest\\overwritetest\\module1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9B9A3FC5-CED2-4A84-8B8B-0E502DF2264F}|OverWriteTest\\OverWriteTest.vbproj|solutionrelative:overwritetest\\module1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B9A3FC5-CED2-4A84-8B8B-0E502DF2264F}|OverWriteTest\\OverWriteTest.vbproj|c:\\users\\victim\\source\\repos\\paranyok\\assembly\\overwritetest\\overwritetest\\overwritetest\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|8998e48e-b89a-4034-b66e-353d8c1fdc2e"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OverWriteTest",
+              "DocumentMoniker": "C:\\Users\\victim\\source\\repos\\Paranyok\\Assembly\\OverWriteTest\\OverWriteTest\\OverWriteTest\\OverWriteTest.vbproj",
+              "RelativeDocumentMoniker": "OverWriteTest\\OverWriteTest.vbproj",
+              "ToolTip": "C:\\Users\\victim\\source\\repos\\Paranyok\\Assembly\\OverWriteTest\\OverWriteTest\\OverWriteTest\\OverWriteTest.vbproj",
+              "RelativeToolTip": "OverWriteTest\\OverWriteTest.vbproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-09-21T09:27:48.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Module1.vb",
+              "DocumentMoniker": "C:\\Users\\victim\\source\\repos\\Paranyok\\Assembly\\OverWriteTest\\OverWriteTest\\OverWriteTest\\Module1.vb",
+              "RelativeDocumentMoniker": "OverWriteTest\\Module1.vb",
+              "ToolTip": "C:\\Users\\victim\\source\\repos\\Paranyok\\Assembly\\OverWriteTest\\OverWriteTest\\OverWriteTest\\Module1.vb",
+              "RelativeToolTip": "OverWriteTest\\Module1.vb",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAawE4AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-09-12T07:20:48.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

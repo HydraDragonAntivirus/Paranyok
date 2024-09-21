@@ -1,0 +1,22 @@
+openssl x509 -in paranyok.cer -out paranyok_cert.pem -outform PEM
+openssl x509 -req -days 365 -in paranyok.csr -signkey paranyok.pem -out paranyok_cert.pem
+openssl req -new -key paranyok.pem -out paranyok.csr
+openssl x509 -req -days 365 -in paranyok.csr -signkey paranyok.pem -out paranyok_cert.pem
+openssl pkcs12 -export -out paranyok.pfx -inkey paranyok.pem -in paranyok_cert.pem
+
+Country: TR
+State: Turkey
+Locality Name: Istanbul
+Organization Name: Emirhan Ucan
+Organizational Unit Name: Finance
+Common Name: Emirhan Ucan
+Email Address: semaemirhan555@gmail.com
+A challange password: Paranyok
+company name: Emirhan Ucan
+
+openssl pkcs12 -export -out paranyok.pfx -inkey paranyok.pem -in paranyok_cert.pem -password pass:ParanyokBuradanKacisYok
+signtool sign /f paranyok.pfx /p ParanyokBuradanKacisYok /fd sha256 mcupdate.dll
+certutil -p ParanyokBuradanKacisYok -importpfx paranyok.pfx
+signtool sign /f paranyok.pfx /p ParanyokBuradanKacisYok /fd sha256 /t http://timestamp.digicert.com mcupdate_GenuineIntel.dll
+signtool sign /f paranyok.pfx /p ParanyokBuradanKacisYok /fd sha256 /t http://timestamp.digicert.com mcupdate_AuthenticAMD.dll
+signtool sign /f paranyok.pfx /p ParanyokBuradanKacisYok /fd sha256 /t http://timestamp.digicert.com bootmgfw.efi

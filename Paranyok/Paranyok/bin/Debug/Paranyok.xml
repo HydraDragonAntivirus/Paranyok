@@ -1,0 +1,52 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Paranyok
+</name>
+</assembly>
+<members>
+<member name="T:Paranyok.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Paranyok.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Paranyok.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:Paranyok.My.Resources.Resource1">
+<summary>
+  Yerelleştirilmiş dizeleri aramak gibi işlemler için, türü kesin olarak belirtilmiş kaynak sınıfı.
+</summary>
+</member>
+<member name="P:Paranyok.My.Resources.Resource1.ResourceManager">
+<summary>
+  Bu sınıf tarafından kullanılan, önbelleğe alınmış ResourceManager örneğini döndürür.
+</summary>
+</member>
+<member name="P:Paranyok.My.Resources.Resource1.Culture">
+<summary>
+  Tümü için geçerli iş parçacığının CurrentUICulture özelliğini geçersiz kular
+  CurrentUICulture özelliğini tüm kaynak aramaları için geçersiz kılar.
+</summary>
+</member>
+<member name="P:Paranyok.My.Resources.Resource1.PARANYOK">
+<summary>
+  System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
+</summary>
+</member>
+<member name="P:Paranyok.My.Resources.Resource1.paranyokaudio">
+<summary>
+  System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
+</summary>
+</member>
+</members>
+</doc>
