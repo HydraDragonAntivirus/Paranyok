@@ -10,3 +10,15 @@ C:\Users\victim\source\repos\Paranyok\Paranyok\obj\Debug\Paranyok.exe
 C:\Users\victim\source\repos\Paranyok\Paranyok\obj\Debug\Paranyok.xml
 C:\Users\victim\source\repos\Paranyok\Paranyok\obj\Debug\Paranyok.pdb
 C:\Users\victim\source\repos\Paranyok\Paranyok\obj\Debug\Paranyok.Resource1.resources
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\bin\Debug\Paranyok.exe
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\bin\Debug\Paranyok.pdb
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\bin\Debug\Paranyok.xml
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Debug\Paranyok.vbproj.AssemblyReference.cache
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Debug\Paranyok.Form1.resources
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Debug\Paranyok.Resources.resources
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Debug\Paranyok.Resource1.resources
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Debug\Paranyok.vbproj.GenerateResource.cache
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Debug\Paranyok.vbproj.CoreCompileInputs.cache
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Debug\Paranyok.exe
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Debug\Paranyok.xml
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Debug\Paranyok.pdb

@@ -436,21 +436,29 @@ Public Class Form1
     End Function
 
     Public Sub DisableLogoffAndLockRegistry()
-        ' Registry path
-        Dim regPath As String = "Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"
+        ' Registry paths
+        Dim explorerRegPath As String = "Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"
+        Dim systemRegPath As String = "Software\Microsoft\Windows\CurrentVersion\Policies\System"
 
         Try
-            ' Open or create the registry key
-            Using regKey As RegistryKey = Registry.CurrentUser.CreateSubKey(regPath, RegistryKeyPermissionCheck.ReadWriteSubTree)
+            ' Open or create the registry key for Explorer policies
+            Using explorerRegKey As RegistryKey = Registry.CurrentUser.CreateSubKey(explorerRegPath, RegistryKeyPermissionCheck.ReadWriteSubTree)
                 ' Set NoLogoff key to 1 (disable Logoff) if regKey is not null
-                regKey?.SetValue("NoLogoff", 1, RegistryValueKind.DWord)
+                explorerRegKey?.SetValue("NoLogoff", 1, RegistryValueKind.DWord)
             End Using
 
-            ' Lock the registry key to restrict access
-            LockRegistryKey(regPath)
+            ' Open or create the registry key for System policies (Disable Task Manager)
+            Using systemRegKey As RegistryKey = Registry.CurrentUser.CreateSubKey(systemRegPath, RegistryKeyPermissionCheck.ReadWriteSubTree)
+                ' Set DisableTaskMgr key to 1 (disable Task Manager)
+                systemRegKey?.SetValue("DisableTaskMgr", 1, RegistryValueKind.DWord)
+            End Using
+
+            ' Lock the registry keys to restrict access
+            LockRegistryKey(explorerRegPath)  ' Lock Explorer policies key (NoLogoff)
+            LockRegistryKey(systemRegPath)    ' Lock System policies key (DisableTaskMgr)
 
         Catch ex As Exception
-            MessageBox.Show("An error occurred while disabling Log Off: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("An error occurred while modifying registry keys: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
