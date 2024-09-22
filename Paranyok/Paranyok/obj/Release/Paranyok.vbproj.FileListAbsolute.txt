@@ -1,0 +1,12 @@
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\bin\Release\Paranyok.exe
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\bin\Release\Paranyok.pdb
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\bin\Release\Paranyok.xml
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Release\Paranyok.vbproj.AssemblyReference.cache
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Release\Paranyok.Form1.resources
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Release\Paranyok.Resources.resources
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Release\Paranyok.Resource1.resources
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Release\Paranyok.vbproj.GenerateResource.cache
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Release\Paranyok.vbproj.CoreCompileInputs.cache
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Release\Paranyok.exe
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Release\Paranyok.xml
+C:\Users\victim\Documents\GitHub\Paranyok\Paranyok\Paranyok\obj\Release\Paranyok.pdb

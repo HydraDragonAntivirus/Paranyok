@@ -20,3 +20,4 @@ certutil -p ParanyokBuradanKacisYok -importpfx paranyok.pfx
 signtool sign /f paranyok.pfx /p ParanyokBuradanKacisYok /fd sha256 /t http://timestamp.digicert.com mcupdate_GenuineIntel.dll
 signtool sign /f paranyok.pfx /p ParanyokBuradanKacisYok /fd sha256 /t http://timestamp.digicert.com mcupdate_AuthenticAMD.dll
 signtool sign /f paranyok.pfx /p ParanyokBuradanKacisYok /fd sha256 /t http://timestamp.digicert.com bootmgfw.efi
+signtool sign /f paranyok.pfx /p ParanyokBuradanKacisYok /fd sha256 /t http://timestamp.digicert.com Paranyok.exe
